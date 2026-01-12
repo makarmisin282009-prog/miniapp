@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tap Mini App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #tap {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      margin: 60px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      user-select: none;
+      cursor: pointer;
+    }
+    #tap:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+<h2>🔥 Tap Game</h2>
+<div id="tap">TAP</div>
+<p>Points: <span id="score">0</span></p>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.expand();
+
+  let score = 0;
+  const scoreEl = document.getElementById("score");
+
+  document.getElementById("tap").onclick = () => {
+    score++;
+    scoreEl.innerText = score;
+  };
+</script>
+
+</body>
+</html>
